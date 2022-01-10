@@ -1,0 +1,4 @@
++gerar a migration pra tabela
+rails generate migration create_articles
++gerar a tabela no bd
+rails db:migrate

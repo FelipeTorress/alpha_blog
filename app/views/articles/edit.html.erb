@@ -1,6 +1,6 @@
-<h1>Criando novo artigo</h1>
+<h1>Editando artigo</h1>
 
-<% if @article != nil && @article.errors.any? %>
+<% if @article.errors.any? %>
   <h2>O(s) seguinte(s) erro(s) está(ão) impedindo a criação do artigo:</h2>
   <ul>
   <% @article.errors.full_messages.each do |msg| %>
@@ -9,7 +9,7 @@
   </ul>
 <% end %>
 
-<%= form_with scope: :article, url: articles_path, local: true do |f| %>
+<%= form_with(model: @article, local: true) do |f| %>
 
     <%= f.label :titulo %></br>
     <%= f.text_field :title %></br>
@@ -17,7 +17,7 @@
     <%= f.label :descrição %></br>
     <%= f.text_area :description %></br>
 
-    <%= f.submit %></br>
-    
+    <%= f.submit %>
+
 <% end %>
-<%= link_to 'Voltar a lista de artigos', articles_path %>
+<%= link_to 'Cancelar e voltar', articles_path %>

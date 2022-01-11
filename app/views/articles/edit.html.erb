@@ -1,23 +1,5 @@
 <h1>Editando artigo</h1>
 
-<% if @article.errors.any? %>
-  <h2>O(s) seguinte(s) erro(s) está(ão) impedindo a criação do artigo:</h2>
-  <ul>
-  <% @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-  </ul>
-<% end %>
+<%= render 'form' %>
 
-<%= form_with(model: @article, local: true) do |f| %>
-
-    <%= f.label :titulo %></br>
-    <%= f.text_field :title %></br>
-
-    <%= f.label :descrição %></br>
-    <%= f.text_area :description %></br>
-
-    <%= f.submit %>
-
-<% end %>
 <%= link_to 'Cancelar e voltar', articles_path %>

@@ -1,0 +1,67 @@
+//homepage
+#titulop {
+    color: #fff;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+}
+#tituloh1 {
+    color: #fff;
+    background-color: rgba($color: #000000, $alpha: 0.7);
+}
+
+.navbar{
+    color: black;
+}
+
+#logo {
+    float: left;
+    font-size: 1.7em;
+    color: black;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    font-weight: bold;
+}
+.jumbotron {
+    background-image: asset-url('book.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+}
+
+#nav-li{
+    margin-bottom: 0px;
+}
+
+.dark{
+    background-color: black;
+}
+
+//index
+
+#card-div{
+    background-color: gray;
+    color: white;
+    border-radius: 5px;
+    border: solid 3px;
+}
+
+#cards-width {
+    width: 45%;
+    margin-bottom: 4px;
+
+}
+
+#cards {
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: solid 3px;
+}
+
+#titulo{
+    font-size: 2.5rem;
+}
+
+html,
+body {
+  height: 100%;
+}

@@ -1,10 +1,18 @@
-<div class="text-center">
-    <h1>Show articles details</h1>
-    <p><Strong>Title: </Strong> <%= @article.title %></p>
-    <p><Strong>Descrition: </Strong> <%= @article.description %></p>
-    </br>
+<div class="container" id="cards-width">
+  <h1 class="text-center mt-4">Detalhes do Artigo</h1>
+  <div class="card text-center" id="cards">
+      <div class="card-header" id="card-div">by Felipe</div>
+      <div class="card-body">
+        <h2 class="card-title" id="titulo"><Strong>Titulo: </Strong></br> <%= @article.title %></h2>
+        <p class="card-text"><Strong>Descrição: </Strong></br> <%= @article.description %></p>
+        <%= link_to 'Editar', edit_article_path(@article), class: "btn btn-info" %>
+        <%= link_to 'Deletar', article_path(@article), class: "btn btn-danger" , data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja deletar esse artigo?"} %>
+        <%= link_to 'Voltar a lista de artigos', articles_path, class: "btn btn-primary" %>
+        </div>
 
-    <%= link_to 'Editar', edit_article_path(@article) %>
-    <%= link_to 'Deletar', article_path(@article), data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja deletar esse artigo?"} %>
-    <%= link_to 'Voltar a lista de artigos', articles_path %>
+      <div class="card-footer text-muted" id="card-div">
+        <small>Craido em <%= time_ago_in_words(@article.created_at) %>,
+        Editado em  <%= time_ago_in_words(@article.updated_at) %> </small>
+      </div>
+  </div>
 </div>

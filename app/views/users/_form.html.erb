@@ -33,7 +33,7 @@
         </div>
 
         <div class="form-group row justify-content-center">
-          <%= f.submit "Criar Usuario" ,class: "btn btn-outline-light btn-lg" %>
+          <%= f.submit( @user.new_record? ? "Criar Usuário" : "Editar Usuário",class: "btn btn-outline-light btn-lg") %>
         </div>
       <% end %>
     </div>

@@ -1,5 +1,10 @@
 <div class="text-center">
   <h1>Alpha Bloggers</h1>
+
+  <div class="flickr_pagination">
+    <%= will_paginate @users, :container => false %>
+  </div>
+
   <div class="container" id="cards-width">
   <% @users.each do |user| %>
         <div class="card text-center" id="cards">
@@ -17,4 +22,9 @@
         </div>
   <% end %>
 </div>
+
+<div class="flickr_pagination">
+  <%= will_paginate @users, :container => false %>
+</div>
+
 </div>

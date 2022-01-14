@@ -6,5 +6,13 @@
     <%= link_to 'Editar Perfil', edit_user_path(@user), class: "btn btn-info" %>
   </div>
   <h3> Artigos: </h3>
+  <div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
+
   <%= render 'articles/articles' %>
+
+  <div class="flickr_pagination">
+    <%= will_paginate @articles, :container => false %>
+  </div>
 </div>

@@ -1,0 +1,6 @@
+<div class="text-center">
+    <h1>Perfil de <%= @user.username %></h1>
+    <%= gravatar_for @user, size:200 %>
+    <h3> Artigos: </h3>
+    <%= render 'articles/articles' %>
+</div>

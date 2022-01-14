@@ -1,6 +1,10 @@
 <div class="text-center">
-    <h1>Perfil de <%= @user.username %></h1>
-    <%= gravatar_for @user, size:200 %>
-    <h3> Artigos: </h3>
-    <%= render 'articles/articles' %>
+  <div class="text-center"></div>
+  <h1>Perfil de <%= @user.username %></h1>
+  <%= gravatar_for @user, size:200 %>
+  <div class="text-center">
+    <%= link_to 'Editar Perfil', edit_user_path(@user), class: "btn btn-info" %>
+  </div>
+  <h3> Artigos: </h3>
+  <%= render 'articles/articles' %>
 </div>

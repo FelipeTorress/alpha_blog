@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
-    @article.user = User.last
+    @article.user = User.find(session[:user_id])
     p @article
     if @article.save
       flash[:notice] = "Artigo criado com sucesso!"

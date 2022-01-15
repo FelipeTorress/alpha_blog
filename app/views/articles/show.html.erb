@@ -6,8 +6,10 @@
       <div class="card-body">
         <h2 class="card-title" id="titulo"><Strong>Titulo: </Strong></br> <%= @article.title %></h2>
         <p class="card-text"><Strong>Descrição: </Strong></br> <%= @article.description %></p>
-        <%= link_to 'Editar', edit_article_path(@article), class: "btn btn-info" %>
-        <%= link_to 'Deletar', article_path(@article), class: "btn btn-danger" , data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja deletar esse artigo?"} %>
+        <% if logged_in? && @article.user == current_user %>
+          <%= link_to 'Editar', edit_article_path(@article), class: "btn btn-info" %>
+          <%= link_to 'Deletar', article_path(@article), class: "btn btn-danger" , data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja deletar esse artigo?"} %>
+        <% end %>
         <%= link_to 'Voltar a lista de artigos', articles_path, class: "btn btn-primary" %>
         </div>
 

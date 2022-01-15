@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :search_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:show, :index]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
   end
@@ -18,7 +20,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.create(article_params)
-    @article.user = User.find(session[:user_id])
+    @article.user = current_user
     p @article
     if @article.save
       flash[:notice] = "Artigo criado com sucesso!"
@@ -50,5 +52,12 @@ class ArticlesController < ApplicationController
 
   def article_params
     return params.require(:article).permit(:title, :description)
+  end
+
+  def require_same_user
+    if current_user != @article.user
+      flash[:alert] = "Você so pode deletar e alterar seus artigos"
+      redirect_to article_path(@article)
+    end
   end
 end

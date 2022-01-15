@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :search_user, only: [:show, :edit, :update]
+  before_action :require_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -45,6 +47,13 @@ class UsersController < ApplicationController
 
   def search_user
     return @user = User.find(params[:id])
+  end
+
+  def require_same_user
+    if current_user != @user
+      flash[:notice] = "Você so pode fazer alterações em sua conta"
+      redirect_to user_path(@user)
+    end
   end
 
 end

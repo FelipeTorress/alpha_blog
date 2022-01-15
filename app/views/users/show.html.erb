@@ -2,9 +2,11 @@
   <div class="text-center"></div>
   <h1>Perfil de <%= @user.username %></h1>
   <%= gravatar_for @user, size:200 %>
-  <div class="text-center">
-    <%= link_to 'Editar Perfil', edit_user_path(@user), class: "btn btn-info" %>
-  </div>
+  <% if logged_in? && @user == current_user %>
+    <div class="text-center">
+      <%= link_to 'Editar Perfil', edit_user_path(@user), class: "btn btn-info" %>
+    </div>
+  <% end %>
   <h3> Artigos: </h3>
   <div class="flickr_pagination">
     <%= will_paginate @articles, :container => false %>

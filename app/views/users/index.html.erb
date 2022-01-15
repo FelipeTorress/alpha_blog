@@ -13,7 +13,9 @@
             <div class="card-body">
               <p class="card-text"><%= pluralize(user.articles.count, 'Artigo') %></p>
               <%= link_to 'Visualizar Perfil', user_path(user), class: "btn btn-success" %>
-              <%= link_to 'Editar Perfil', edit_user_path(user), class: "btn btn-info" %>
+              <% if logged_in? && user == current_user %>
+                <%= link_to 'Editar Perfil', edit_user_path(user), class: "btn btn-info" %>
+              <% end %>
            </div>
 
             <div class="card-footer text-muted" id="card-div">

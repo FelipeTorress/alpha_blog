@@ -11,7 +11,7 @@
           <%= link_to 'Deletar', article_path(@article), class: "btn btn-danger" , data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja deletar esse artigo?"} %>
         <% end %>
         <%= link_to 'Voltar a lista de artigos', articles_path, class: "btn btn-primary" %>
-        </div>
+      </div>
 
       <div class="card-footer text-muted" id="card-div">
         <small>Criado em <%= time_ago_in_words(@article.created_at) %>,

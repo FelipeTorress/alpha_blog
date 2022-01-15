@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  before_action :search_user, only: [:show, :edit, :update]
+  before_action :search_user, only: [:show, :edit, :update, :destroy]
   before_action :require_user, only: [:edit, :update]
-  before_action :require_same_user, only: [:edit, :update]
+  before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def index
     @users = User.paginate(page: params[:page], per_page: 5)
@@ -37,6 +37,13 @@ class UsersController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "Sua conta foi excluida!"
+    redirect_to root_path
   end
 
   private

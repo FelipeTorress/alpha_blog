@@ -3,8 +3,11 @@
   <h1>Perfil de <%= @user.username %></h1>
   <%= gravatar_for @user, size:200 %>
   <% if logged_in? && @user == current_user %>
-    <div class="text-center">
+    <div class="text-center" id="account-options">
       <%= link_to 'Editar Perfil', edit_user_path(@user), class: "btn btn-info" %>
+      <%= link_to 'Deletar Perfil', user_path(current_user), 
+        data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja deletar sua conta?"},
+        class: "btn btn-danger"%>
     </div>
   <% end %>
   <h3> Artigos: </h3>

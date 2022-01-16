@@ -58,7 +58,7 @@ class UsersController < ApplicationController
 
   def require_same_user
     if current_user != @user && !current_user.admin?
-      flash[:notice] = "Você so pode fazer alterações em sua conta"
+      flash[:danger] = "Você so pode fazer alterações em sua conta"
       redirect_to user_path(@user)
     end
   end

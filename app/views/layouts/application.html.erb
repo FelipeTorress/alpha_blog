@@ -12,11 +12,17 @@
 
   <body>
     <%= render 'layouts/navigation' %>
+
     <div class="container text-center" id="top-message">
       <% flash.each do |name, msg|%>
-        <%= msg %>
+        <% if name == "notice" %>
+          <div id="color-green"> <%= msg %> </div>
+        <% else %>
+          <div id="color-red"> <%= msg %> </div>
+        <% end %>
       <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>

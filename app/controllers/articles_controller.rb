@@ -56,7 +56,7 @@ class ArticlesController < ApplicationController
 
   def require_same_user
     if current_user != @article.user && !current_user.admin?
-      flash[:alert] = "Você so pode deletar e alterar seus artigos"
+      flash[:alert] = "Você so pode deletar e alterar seus artigos1"
       redirect_to article_path(@article)
     end
   end

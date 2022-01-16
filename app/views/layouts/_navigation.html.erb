@@ -12,7 +12,7 @@
         <li><%= link_to 'Usuários', users_path, class: "nav-link" %></li>
         <% if logged_in? %>
           <li><%= link_to 'Novo Artigo', new_article_path, class: "nav-link" %></li>
-          <li><%= link_to current_user.username, user_path(current_user), class: "nav-link" %></li>
+          <li><%= link_to "#{"(Admin)" if current_user.admin?} Perfil [#{current_user.username}] ", user_path(current_user), class: "nav-link" %></li>
           <li><%= link_to 'Deslogar', logout_path, data: { "turbo-method": :delete , "turbo-confirm": "Você tem certeza que deseja sair?"} %></li>
         <% else %>
           <li><%= link_to 'Logar', login_path, class: "nav-link" %></li>
